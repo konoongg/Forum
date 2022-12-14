@@ -1,0 +1,13 @@
+{% extends 'bs.html' %}
+{% block title %}обновление статьи{% endblock %}
+{% block body %}
+	<div class = 'container' style = 'text-align:center ;' >
+		<h1>обновление статьи</h1>
+		<form  method = "post">
+			<input type = "text" name = 'title' id = 'title' class = 'form-control'  value = "{{text[2]}}" placeholder ='введите заголовок'><br>
+			<textarea name = 'intro' id = 'intro' cols = '30' rows = '10' class = 'form-control'  placeholder ='введите интро'>{{text[3]}}</textarea><br>
+			<textarea name = 'text' id = 'text' cols = '30' rows = '10' class = 'form-control'   placeholder ='введите текст'>{{text[4]}}</textarea><br>
+			<input type = "submit"  class = 'btn btn-success' value ='обновить'><br>
+		</form>
+	</div>
+{% endblock %}

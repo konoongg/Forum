@@ -1,0 +1,13 @@
+{% extends 'bs.html' %}
+{% block title %}вход{% endblock %}
+{% block body %}
+	<div class = 'container' style = 'text-align:center ;'>
+		<h1 >вход</h1>
+		<h4 style = 'color:red'>{{text}}</h4>
+		<form  method = "post">
+			<input type = "text" name = 'login' id = 'login' class = 'form-control' placeholder ='введите логин'><br>
+			<input type = "password" name = 'password' id = 'password' class = 'form-control' placeholder = 'введите пароль'><br>
+			<input type = "submit"  class = 'btn btn-success' value ='войти'><br>
+		</form>
+	</div>	
+{% endblock %}

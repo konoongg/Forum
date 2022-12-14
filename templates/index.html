@@ -1,0 +1,12 @@
+{% extends 'bs.html' %}
+{% block title %}главная страница{% endblock %}
+{% block body %}
+	<div class = 'container' style = 'text-align:center ;'>
+		{% if not l_t %}
+				<h4 style = 'text-align: center; '>авторизуйтесь </h4>
+		{% else %}
+			<h4 style = 'text-align: center; '>приветствуем {{l_t}}</h4>
+			<a class="btn btn-warning" href="/creare_posts" > создать пост</a>
+		{% endif%}
+	</div>	
+{% endblock %}

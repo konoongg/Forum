@@ -1,0 +1,12 @@
+{% extends 'bs.html' %}
+{% block title %}подтверждение пароля{% endblock %}
+{% block body %}
+	<div class = 'container' style = 'text-align:center ;'>
+		<h1 >подтверждение пароля</h1>
+		<h4 style = 'color:red'>{{text}}</h4>
+		<form  method = "post">
+			<input type = "password" name = 'password' id = 'password' class = 'form-control' placeholder = 'введите пароль'><br>
+			<input type = "submit"  class = 'btn btn-success' value ='войти'><br>
+		</form>
+	</div>	
+{% endblock %}

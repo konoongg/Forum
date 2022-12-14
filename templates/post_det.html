@@ -1,0 +1,45 @@
+{% extends 'bs.html' %}
+{% block title %}{{text[2]}}{% endblock %}
+{% block body %}
+	<div class = 'container' >
+		<h1 style = 'text-align:center ;' >{{text[2]}}</h1>	
+		<div class = 'alert alert-info'>
+			<p>{{text[4]}}</p>
+			<p><b>Дата: {{text[5][:10]}}</b></p>
+			<p>автор : {{text[1]}}</b></p>
+			<a class = 'btn btn-warning' href = '/post'> назад</a>
+			{% if l_t == text[1]  %}
+				<a class = 'btn btn-danger' href = '/post/{{text[0]}}/delete'> удалить</a>
+				<a class = 'btn btn-success' href = '/post/{{text[0]}}/update'> редактировать</a>
+			{% endif %}
+		</div>
+		<h1 style = 'text-align:center ;'>комметарии</h1>
+		{% if not l_t %}
+		<p>авторизуйтесь, чтобы оставить коментарий</p>
+		{% else%}
+			<div style = 'margin-bottom:15px ;'>
+				<form  method = "post">
+					<textarea name = 'text' id = 'text' cols = '30' rows = '5' class = 'form-control' placeholder ='комметировать'></textarea><br>
+					<input type = "submit"  class = 'btn btn-success' value ='отправить'><br>
+				</form>
+			
+			</div>
+		{% endif %}
+	</div>
+	<div class = 'container' >		
+		{% if com|length > 0 %}
+			{%for el in com %}
+				<div class = 'alert alert-info'>
+					<h2 style = 'font-size:15px ;'>Автор: <b>{{el[2]}}</b></h2>
+					<p>{{el[3]}}</p>
+					<p><b>Дата: {{el[4][:10]}}</b></p>
+					{% if l_t == el[2] %}
+						<a class = 'btn btn-danger' href = '/post/{{text[0]}}/com/{{el[0]}}'> удалить</a>
+					{% endif %}
+					</div>
+			{%endfor %}
+		{% else%}	
+			<p>нет комментариев</p>
+		{% endif%}
+	</div>		
+{% endblock %}

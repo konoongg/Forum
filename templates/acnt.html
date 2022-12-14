@@ -1,0 +1,27 @@
+{% extends 'bs.html' %}
+{% block title %}ваш аккаунт{% endblock %}
+{% block body %}
+	<div class = 'container' '>
+		<h1 style = 'text-align:center ;'  >ваш аккаунт</h1>
+		<h3 style = 'font-size:15px ;'>Ваш логин: <b>{{us[1]}}</b></h3>
+		<a class = 'btn btn-success' href = '/acnt/{{l_t}}/red'> редактировать</a>
+	</div>
+	<div class = 'container' >
+		<h1 style = 'text-align:center ;'>ваши статьи</h1>
+		{% if posts|length > 0 %}
+			{%for el in posts %}
+				<div class = 'alert alert-info'>
+					<h2>{{el[2]}}</h2>
+					<p>{{el[3]}}</p>
+					<p><b>Дата: {{el[5][:10]}}</b></p>
+					<p>автор : {{el[1]}}</b></p>
+					<a class = 'btn btn-warning' href = '/post/{{el[0]}}'> к посту</a>
+					<a class = 'btn btn-danger' href = '/post/{{el[0]}}/delete'> удалить</a>
+					<a class = 'btn btn-success' href = '/post/{{el[0]}}/update'> редактировать</a>
+				</div>
+			{%endfor %}
+		{% else%}	
+			<p>у вас статей</p>
+		{% endif%}
+	</div>	
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'bs.html' %}
+{% block title %}статьи{% endblock %}
+{% block body %}
+	<div class = 'container' >
+		<h1 style = 'text-align:center ;'>статьи</h1>
+		{% if post|length > 0 %}
+			{%for el in post %}
+				<div class = 'alert alert-info'>
+					<h2>{{el[2]}}</h2>
+					<p>{{el[3]}}</p>
+					<p><b>Дата: {{el[5][:10]}}</b></p>
+					<p>автор : {{el[1]}}</b></p>
+					<a class = 'btn btn-warning' href = '/post/{{el[0]}}'> к посту</a>
+				</div>
+			{%endfor %}
+		{% else%}	
+			<p>нет статей</p>
+		{% endif%}
+	</div>	
+{% endblock %}
